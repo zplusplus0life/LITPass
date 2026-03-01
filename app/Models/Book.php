@@ -18,4 +18,9 @@ class Book extends Model
         'cover_url',
         'is_premium',
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
