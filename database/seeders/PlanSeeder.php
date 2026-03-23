@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Plan;
 
 class PlanSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class PlanSeeder extends Seeder
 
         Plan::create([
             'nama' => 'Keanggotaan klub buku',
-            'slug' => 'pro',
+            'slug' => 'Pro',
             'harga' => 10000.00,
             'deskripsi' => 'Dapatkan potongan harga 20% untuk semua buku berbayar dan mengakses koleksi premium',
         ]);
