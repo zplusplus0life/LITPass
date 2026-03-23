@@ -17,12 +17,12 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'judul' => fake()->sentece(3),
+            'judul' => fake()->sentence(3),
             'penulis' => fake()->name(),
-            'harga' => fake->randomFloat(2,5,100),
+            'harga' => fake()->randomFloat(2,5,100),
             'deskripsi' => fake()->paragraph(),
             'cover_url' => 'https://picsum.photos/seed/' . fake()->word . '/400/600',
-            'is_premium' => fake->boolean(20),
+            'is_premium' => fake()->boolean(20),
         ];
     }
 }
