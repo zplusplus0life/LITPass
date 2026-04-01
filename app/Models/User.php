@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -49,4 +50,16 @@ class User extends Authenticatable
             'two_factor_confirmed_at' => 'datetime',
         ];
     }
+
+    public function langganan(): HasMany
+    {
+        return $this->HasMany(Subsription::class);
+    }
+
+    public function punyaAktifLangganan(): bool
+    {
+        return $this->langganan()->where('status', 'aktif')->where('ends_at', '>', now())->exists();
+    }
+
+    // get() dari  ambil langganan
 }
