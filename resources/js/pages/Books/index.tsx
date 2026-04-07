@@ -1,15 +1,11 @@
-import {book, PropsBuku} from '@/types';
+import {subs, PropsBuku} from '@/types';
+import AppLogo from '@/components/app-logo'
 
-export default function index({buku } :  {buku : PropsBuku}) {
+export default function index({buku, isSubscribed}  : {buku: PropsBuku, isSubscribed: subs}) {
 
     return (
         <>
-        {buku.map((buku: book) =>  (
-<li key= {buku.id}>
-{buku.harga}
-{buku.judul}
-</li>
-        ))}
+      <AppLogo />
         </>
     )
 }
