@@ -17,4 +17,8 @@ Route::get('/books', [BookController::class, 'index'])->name('books.indeks');
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->name('dashboard');
 
+Route::middleware('auth')->group(function(){
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+});
+
 Route::get('/plans', [PlansConroller::class, 'index'])->name('plans.index');
