@@ -61,5 +61,5 @@ class User extends Authenticatable
         return $this->langganan()->where('status', 'aktif')->where('ends_at', '>', now())->exists();
     }
 
-    // get() dari  ambil langganan
+  
 }
