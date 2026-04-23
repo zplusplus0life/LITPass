@@ -1,13 +1,12 @@
-export type book = {
+ type book = {
 id: number;
 judul: string;
 penulis: string;
 harga: number;
-deskripsi?: string;
-cover_url?: string;
+harga_member: number;
+tampil_harga: number;
 is_premium: boolean;
-created_at: string;
-updated_at: string;
+cover_url: string;
 }
 
 export type PropsBuku = book[];
