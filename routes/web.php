@@ -13,6 +13,7 @@ Route::get('/', function () {
 });
 
 Route::get('/books', [BookController::class, 'index'])->name('books.indeks');
+Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->name('dashboard');
@@ -22,3 +23,6 @@ Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit')
 });
 
 Route::get('/plans', [PlansConroller::class, 'index'])->name('plans.index');
+Route::post('plans/{plan}/subscribe', [PlansController::class, 'subscribe'])
+->middleware(['auth'])
+->name('plans.subscribe');
