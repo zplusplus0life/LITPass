@@ -33,12 +33,33 @@ class BookController extends Controller
             ];
          });
 
- 
-         
- return Inertia::render('Books/index', [
- 'buku' => $books,
- 'langganan' => $hasSubs,
- ]);
+            return Inertia::render('Books/index', [
+                    'buku' => $books,
+                    'langganan' => $hasSubs,
+            ]);
+    }
 
+    public function show(Book $book)
+    {
+        $user = Auth::user();
+        $hasSubs = $user ? $user->punyaAktifLangganan() : false;
+
+        if ($book->is_premium && !$hasSubs){
+            return redirec()->route('plans.index')->with('error', 'This book is exclusive for Book Club Members. Join now to unlock!');
+        }
+
+        return Inertia::render('Books/show',[
+            'books' => [
+                'id' => $book->id,
+                'judul' => $book->judul,
+                'penulis' => $book->penulis,
+                'harga' => (float)$book->harga,
+                'tampilan_harga' => $hasSubs ? (float)($book->harga * 0.8) : (float)$book->harga,
+                'deskripsi' => $book->deskripsi,
+                'cover_url' => $book->cover_url,
+                'is_premium' => $book->is_premium,
+            ],
+            'langganan' => $hasSubs,
+        ]);
     }
 }
