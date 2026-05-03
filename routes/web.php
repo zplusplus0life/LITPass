@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\BookController;
@@ -14,6 +15,10 @@ Route::get('/', function () {
 
 Route::get('/books', [BookController::class, 'index'])->name('books.indeks');
 Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
+
+Route::post('/orders', [OrderController::class, 'store'])
+->middleware(['auth'])
+->name('orders.store');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->name('dashboard');
