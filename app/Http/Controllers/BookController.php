@@ -27,7 +27,7 @@ class BookController extends Controller
                 'penulis' => $book->penulis,
                 'harga' => (float) $book->harga,
                 'harga_member' => (float) ($book->harga * 0.8),
-                'tampil_harga' => (float) $displayPrice,
+                'tampilan_harga' => (float) $displayPrice,
                 'is_premium' => $book->is_premium,
                 'cover_url' => $book->cover_url,
             ];
@@ -45,7 +45,7 @@ class BookController extends Controller
         $hasSubs = $user ? $user->punyaAktifLangganan() : false;
 
         if ($book->is_premium && !$hasSubs){
-            return redirec()->route('plans.index')->with('error', 'This book is exclusive for Book Club Members. Join now to unlock!');
+            return redirect()->route('plans.index')->with('error', 'This book is exclusive for Book Club Members. Join now to unlock!');
         }
 
         return Inertia::render('Books/show',[

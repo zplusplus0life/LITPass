@@ -43,7 +43,7 @@ export default function index({buku, langganan}  : {buku: PropsBuku, langganan: 
                         <div className="mt-auto">
                           <div className="flex items-center gap-2">
                             <span className={`text-lg font-bold ${langganan ? 'text-green-600' : 'text-gray-900'}`}>
-                              ${book.tampil_harga.toFixed(2)}
+                              ${book.tampilan_harga.toFixed(2)}
                             </span>
                             {langganan && (
                               <span className="text-xs line-through text-gray-400">
@@ -54,7 +54,7 @@ export default function index({buku, langganan}  : {buku: PropsBuku, langganan: 
 
                           {!langganan && (
                             <p className="text-xs text-indigo-600 font-medium mb-4">
-                              ${book.harga_member.toFixed(2)} for members
+                              ${book.harga_member?.toFixed(2)} for members
                             </p>
                           )}
 

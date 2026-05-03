@@ -5,7 +5,7 @@ penulis: string;
 harga: number;
 deskripsi? : string;
 harga_member?: number;
-tampil_harga: number;
+tampilan_harga: number;
 is_premium: boolean;
 cover_url: string;
 }

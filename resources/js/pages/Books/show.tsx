@@ -3,7 +3,7 @@ import {Head, useForm} from '@inertiajs/react';
 import AuthLayout from '@/layouts/authLayout';
 import {store as  OrderStore} from '@/routes/orders';
 
-export function BookShow({books, langganan}: {books:book, langganan:boolean}){
+export default function BookShow({books, langganan}: {books:book, langganan:boolean}){
 
     const {post, processing} = useForm({
         book_id : books.id,
@@ -48,7 +48,7 @@ export function BookShow({books, langganan}: {books:book, langganan:boolean}){
                                 <div className="mt-auto pt-8">
                                     <div className="flex gap-3 mb-6">
                                         <span className="text-3xl font-bold text-gray-900">
-                                            ${books.tampil_harga.toFixed(2)}
+                                            ${books.tampilan_harga.toFixed(2)}
                                         </span>
                                         {langganan && (
                                             <span className="textsm text-green-600 font-bold bg-green-50 px-2 py-1 rounded">

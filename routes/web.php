@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function(){
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 });
 
-Route::get('/plans', [PlansConroller::class, 'index'])->name('plans.index');
-Route::post('plans/{plan}/subscribe', [PlansController::class, 'subscribe'])
+Route::get('/plans', [PlanController::class, 'index'])->name('plans.index');
+Route::post('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])
 ->middleware(['auth'])
 ->name('plans.subscribe');
