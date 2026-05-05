@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
 use Laravel\Fortify\Features;
@@ -23,11 +24,15 @@ Route::post('/orders', [OrderController::class, 'store'])
 Route::get('/dashboard', [DashboardController::class, 'index'])
 ->name('dashboard');
 
-Route::middleware('auth')->group(function(){
+/* Route::middleware('auth')->group(function(){
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-});
+}); */
 
 Route::get('/plans', [PlanController::class, 'index'])->name('plans.index');
 Route::post('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])
 ->middleware(['auth'])
 ->name('plans.subscribe');
+
+Route::get('/invoices/{invoice}/download', [InvoiceController::class, 'download'])
+->middleware(['auth'])
+->name('invoices.download');

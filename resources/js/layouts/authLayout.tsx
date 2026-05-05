@@ -3,7 +3,7 @@ import {useState} from 'react';
 import Dropdown from '@/components/Dropdown';
 import * as Route from '@/routes/index';
 import {index as planIndex} from '@/routes/plans';
-import {edit as profileEdit} from '@/routes/profile';
+// import {edit as profileEdit} from '@/routes/profile';
 import {indeks as bookIndex} from '@/routes/books';
 import NavLink from '@/components/NavLink';
 
@@ -54,11 +54,11 @@ export default function AuthLayout({header, children}: any){
                                         </Dropdown.Trigger>
 
                                         <Dropdown.Content>
-                                            <Dropdown.Link
+                                            {/* <Dropdown.Link
                                                 href={profileEdit().url}
                                             >
                                                 Profile
-                                            </Dropdown.Link>
+                                            </Dropdown.Link> */}
                                             <Dropdown.Link
                                                 href={Route.logout().url}
                                                 method="post"
