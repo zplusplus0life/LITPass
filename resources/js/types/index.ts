@@ -5,4 +5,5 @@ export type * from './book';
 export type * from './plans';
 export type * from './purchased';
 export type * from './activeSubs';
+export type * from './ManageUsers';
 export type * from './invoices';
