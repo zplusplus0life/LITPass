@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
@@ -35,3 +37,18 @@ Route::post('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])
 Route::get('/invoices/{invoice}/download', [InvoiceController::class, 'download'])
 ->middleware(['auth'])
 ->name('invoices.download');
+
+Route::middleware(['auth', 'middleware'])->prefix('admin')->name('admin.')->group(function (){
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+
+    //user management
+    Route::resource('users', UserController::Class);
+
+    //plans management
+    Route::resource('plans', planController::class);
+
+    //books management
+    Route::get('/books', [AdminController::class, 'books'])->name('books.index');
+    Route::resource('books', AdminController::class)->except(['index', 'show']);
+
+});

@@ -52,6 +52,12 @@ class User extends Authenticatable
         ];
     }
 
+    public function subscription(): HasMany
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+
     public function langganan(): HasMany
     {
         return $this->HasMany(Subscription::class);
@@ -62,5 +68,12 @@ class User extends Authenticatable
         return $this->langganan()->where('status', 'aktif')->where('ends_at', '>', now())->exists();
     }
 
-  
+
+    public function getActiveSubsAttribue()
+    {
+        return $this->subscriptions
+        ->where('status', 'active')
+        ->where('ends_at', '>', now())
+        ->first();
+    }
 }
