@@ -1,4 +1,4 @@
-type plans = {
+export type plans = {
 id : number;
 nama : string;
 slug : string;

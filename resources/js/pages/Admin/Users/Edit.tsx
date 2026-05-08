@@ -95,7 +95,7 @@ export default function Edit({  user }: {user: propsUserEdit}) {
                                                     </div>
                                         </div>
                                         <div className="flex items-center justify-end">
-                                                <PrimaryButton className="ms-4" disabled={processing}>
+                                                <PrimaryButton  disabled={processing}>
                                                     Update User
                                                 </PrimaryButton>
                                         </div>
