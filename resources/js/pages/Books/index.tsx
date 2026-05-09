@@ -30,7 +30,7 @@ export default function index({buku, langganan}  : {buku: PropsBuku, langganan: 
                     <div key={book.id} className="bg-white overflow-hidden shadow-sm sm:rounded-lg border border-gray-100 flex flex-col">
                       <div className="relative">
                         <img src={book.cover_url} alt={book.judul} className="w-full h-64 object-cover"/>
-                        {book.is_premium && (
+                        {!!book.is_premium && (
                           <span className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded">
                             PREMIUM
                           </span>
@@ -43,7 +43,7 @@ export default function index({buku, langganan}  : {buku: PropsBuku, langganan: 
                         <div className="mt-auto">
                           <div className="flex items-center gap-2">
                             <span className={`text-lg font-bold ${langganan ? 'text-green-600' : 'text-gray-900'}`}>
-                              ${book.tampilan_harga.toFixed(2)}
+                              ${book.tampilan_harga?.toFixed(2)}
                             </span>
                             {langganan && (
                               <span className="text-xs line-through text-gray-400">

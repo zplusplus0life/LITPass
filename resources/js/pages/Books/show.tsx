@@ -33,7 +33,7 @@ export default function BookShow({books, langganan}: {books:book, langganan:bool
                                         <h1 className="text-3xl font-extrabold text-gray-900">{books.judul}</h1>
                                         <p className="text-xl text-gray-500">by {books.penulis}</p>
                                     </div>
-                                    {books.is_premium && (
+                                    {!!books.is_premium && (
                                         <span className="bg-yellow-400 text-yellow-900 text-sm font-bold px-3 py-1 rounded-full">
                                             PREMIUM COLLECTION
                                         </span>
@@ -48,7 +48,7 @@ export default function BookShow({books, langganan}: {books:book, langganan:bool
                                 <div className="mt-auto pt-8">
                                     <div className="flex gap-3 mb-6">
                                         <span className="text-3xl font-bold text-gray-900">
-                                            ${books.tampilan_harga.toFixed(2)}
+                                            ${books.tampilan_harga?.toFixed(2)}
                                         </span>
                                         {langganan && (
                                             <span className="textsm text-green-600 font-bold bg-green-50 px-2 py-1 rounded">
