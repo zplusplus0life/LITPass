@@ -17,28 +17,34 @@ Route::get('/', function () {
 });
 
 Route::get('/books', [BookController::class, 'index'])->name('books.indeks');
+
+// --- kelompok route user biasa --- 
+Route::middleware(['auth', 'user'])->group(function(){
+
 Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
 
-Route::post('/orders', [OrderController::class, 'store'])
-->middleware(['auth'])
-->name('orders.store');
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
+Route::post('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])->name('plans.subscribe');
+
+Route::get('/invoices/{invoice}/download', [InvoiceController::class, 'download'])->name('invoices.download');
+
+
+});
+
+
+
 
 /* Route::middleware('auth')->group(function(){
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 }); */
 
 Route::get('/plans', [PlanController::class, 'index'])->name('plans.index');
-Route::post('plans/{plan}/subscribe', [PlanController::class, 'subscribe'])
-->middleware(['auth'])
-->name('plans.subscribe');
 
-Route::get('/invoices/{invoice}/download', [InvoiceController::class, 'download'])
-->middleware(['auth'])
-->name('invoices.download');
 
-Route::middleware(['auth', 'middleware'])->prefix('admin')->name('admin.')->group(function (){
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function (){
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     //user management

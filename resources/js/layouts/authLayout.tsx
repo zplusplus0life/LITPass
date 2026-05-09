@@ -17,10 +17,9 @@ export default function AuthLayout({header, children}: any){
     const [showData, setData] = useState(false);
 
     const currentRouteIs = (target: string) => {
-
         if (target.endsWith('.*')){
             const change = target.replace('.*', '');
-            return target.startsWith(change);
+            return route.startsWith(change);
         }
         return route === target;
     }
@@ -36,25 +35,25 @@ export default function AuthLayout({header, children}: any){
                                     <>
                                         <NavLink
                                             href={adminDashboard().url}
-                                            active={currentRouteIs(route)}
+                                            active={currentRouteIs('admin.dashboard')}
                                         >
                                             Admin Dashboard
                                         </NavLink>
                                            <NavLink
                                             href={AdminUsers().url}
-                                            active={currentRouteIs(route)}
+                                            active={currentRouteIs('admin.users.index')}
                                         >
                                             Manage Users
                                         </NavLink>
                                         <NavLink
                                             href={AdminPlans().url}
-                                            active={currentRouteIs(route)}
+                                            active={currentRouteIs('admin.plans.index')}
                                         >
                                             Manage Plans
                                         </NavLink>
                                         <NavLink
                                             href={AdminBooks().url}
-                                            active={currentRouteIs(route)}
+                                            active={currentRouteIs('admin.books.index')}
                                         >
                                             Manage Books
                                         </NavLink>
@@ -64,20 +63,20 @@ export default function AuthLayout({header, children}: any){
                                    {user && (
                                          <NavLink 
                                               href={Route.dashboard().url}
-                                              active={currentRouteIs(route)}>
+                                              active={currentRouteIs('dashboard')}>
                                              Dashboard
                                         </NavLink>
                                     )}
                                         <NavLink 
                                         href={bookIndex().url}
-                                        active={currentRouteIs(route)}>
+                                        active={currentRouteIs('books.*')}>
                                             Books Catalog
                                         </NavLink>
 
 
                                         <NavLink 
                                         href={planIndex().url}
-                                        active={currentRouteIs(route)}>
+                                        active={currentRouteIs('plans.subscribe')}>
                                             Membership Plans
                                         </NavLink>
                                 </>

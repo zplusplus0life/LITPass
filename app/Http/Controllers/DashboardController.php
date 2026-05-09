@@ -37,7 +37,7 @@ class DashboardController extends Controller
 
         return Inertia::render('dashboard', [
             'purchasedBooks' => $purchasedBooks ?? [],
-            'activeSubscription' => $activesubs ? [
+            'activeSubscription' => $activeSubs ? [
                 'id' => $activeSubs->id,
                 'starts_at' => $activeSubs->starts_at->toDateTimeString(),
                 'ends_at' => $activeSubs->ends_at->format('d M Y'),
