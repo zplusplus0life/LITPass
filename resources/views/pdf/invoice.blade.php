@@ -20,14 +20,14 @@
         </div>
 
         <div class="details">
-            <p><strong>Billed To:</strong> {{ $subscription->user->name }}</p>
+            <p><strong>Billed To:</strong> {{ $subscription->user->nama }}</p>
             <p><strong>Email:</strong> {{ $subscription->user->email }}</p>
         </div>
 
         <div class="item">
             <h3>Subscription Details:</h3>
-            <p><strong>Plan:</strong> {{ $subscription->plan->name }}</p>
-            <p><strong>Description:</strong> {{ $subscription->plan->description }}</p>
+            <p><strong>Plan:</strong> {{ $subscription->plan->nama }}</p>
+            <p><strong>Description:</strong> {{ $subscription->plan->deskripsi }}</p>
             <p><strong>Subscription Period:</strong> {{ $subscription->starts_at->format('d M Y') }} - {{ $subscription->ends_at->format('d M Y') }}</p>
         </div>
 

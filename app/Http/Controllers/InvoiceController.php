@@ -19,7 +19,7 @@ class InvoiceController extends Controller
          $invoice = Invoice::create([
             'subscription_id' => $subscription->id,
             'invoice_number' => $invoiceNumber,
-            'amount' => $subscription->plan->price,
+            'amount' => $subscription->plan->harga,
             'issued_at' => now(),
             'pdf_path' => null,
          ]);
@@ -29,7 +29,7 @@ class InvoiceController extends Controller
           $FileName = 'invoices/' . $invoiceNumber . '.pdf';
           Storage::disk('public')->put($FileName, $pdf->output());
 
-          $invoice->pdf_path = $fileName;
+          $invoice->pdf_path = $FileName;
           $invoice->save();
 
           return $invoice;

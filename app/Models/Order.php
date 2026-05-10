@@ -22,6 +22,6 @@ class Order extends Model
 
     public function book()
     {
-        return $this->belongTo(Book::class);
+        return $this->belongsTo(Book::class);
     }
 }

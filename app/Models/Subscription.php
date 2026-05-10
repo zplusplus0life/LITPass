@@ -2,17 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\BelongsTo;
-use Illuminate\Database\Eloquent\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Subscription extends Model
 {
 
+    protected $fillable = [
+        'user_id',
+        'plan_id',
+        'starts_at',
+        'ends_at',
+        'status',
+    ];
+
     protected $casts = [
         'starts_at' => 'datetime',
         'ends_at' => 'datetime',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function plan(): BelongsTo
     {
