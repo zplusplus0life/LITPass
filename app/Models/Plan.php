@@ -18,5 +18,8 @@ class Plan extends Model
          'deskripsi',
     ];
 
-    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
