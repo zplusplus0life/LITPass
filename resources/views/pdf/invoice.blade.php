@@ -34,7 +34,7 @@
         <hr>
 
         <div class="total">
-            <h2>Total Amount: ${{ number_format($invoice->amount, 2) }}</h2>
+            <h2>Total Amount: Rp. {{ number_format($invoice->amount, 2) }}</h2>
         </div>
 
         <p style="text-align: center; margin-top: 50px;">Thank you for your business!</p>

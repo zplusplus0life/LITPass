@@ -19,8 +19,8 @@ export default function PlanIndex({plans}: {plans: PropsPlans}){
 
                         <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8">
                             {plans.map(plan => (
-                                <div key={plan.id} className="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
-                                    <div className="p-6">
+                                <div key={plan.id} className="border border-gray-200 rounded-lg shadow-sm divide-y flex flex-col divide-gray-200">
+                                    <div className="p-6 flex-1">
                                         <h2 className="text-lg font-medium text-gray-900">{plan.nama}</h2>
                                         <p className="mt-4">
                                             <span className="text-4xl font-extrabold text-gray-900">Rp. {plan.harga}</span>
