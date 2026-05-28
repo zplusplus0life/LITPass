@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id')->constraied()->onDelete('cascade');
+            $table->foreignId('user_id')->constraied()->onDelete('cascade');
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
             $table->decimal('harga_ori', 10,0);
             $table->decimal('diskon', 10, 2)->defualt(0);
