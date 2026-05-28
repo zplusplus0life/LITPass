@@ -23,7 +23,7 @@ export default function PlanIndex({plans}: {plans: PropsPlans}){
                                     <div className="p-6">
                                         <h2 className="text-lg font-medium text-gray-900">{plan.nama}</h2>
                                         <p className="mt-4">
-                                            <span className="text-4xl font-extrabold text-gray-900">${plan.harga}</span>
+                                            <span className="text-4xl font-extrabold text-gray-900">Rp. {plan.harga}</span>
                                             <span className="ml-1 font-medium text-gray-500">/month</span>
                                         </p>
                                         <p className="mt-3 text-gray-500">{plan.deskripsi}</p>

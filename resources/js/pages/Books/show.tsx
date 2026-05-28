@@ -28,7 +28,7 @@ export default function BookShow({books, langganan}: {books:book, langganan:bool
                             <img src={books.cover_url} alt={books.judul} className="w-full rounded-lg shadow-md" />
                             </div>
                             <div className="md:w-2/3 mt-6 md:mt-0 flex flex-col">
-                                <div className="flex justify-between">
+                                <div className="flex justify-between items-start">
                                     <div>
                                         <h1 className="text-3xl font-extrabold text-gray-900">{books.judul}</h1>
                                         <p className="text-xl text-gray-500">by {books.penulis}</p>
@@ -48,7 +48,7 @@ export default function BookShow({books, langganan}: {books:book, langganan:bool
                                 <div className="mt-auto pt-8">
                                     <div className="flex gap-3 mb-6">
                                         <span className="text-3xl font-bold text-gray-900">
-                                            ${books.tampilan_harga?.toFixed(2)}
+                                            Rp. {books.tampilan_harga?.toFixed(2)}
                                         </span>
                                         {langganan && (
                                             <span className="textsm text-green-600 font-bold bg-green-50 px-2 py-1 rounded">

@@ -18,7 +18,7 @@ class BookController extends Controller
 
             $displayPrice = $book->harga;
             if($hasSubs){
-                $displayPrice = $book->price * 0.8;
+                $displayPrice = $book->harga * 0.8;
             }
 
             return [
@@ -43,6 +43,10 @@ class BookController extends Controller
     {
         $user = Auth::user();
         $hasSubs = $user ? $user->punyaAktifLangganan() : false;
+
+        if(!$user){
+            return redirect()->route('login')->with('error', 'You should login first.');
+        }
 
         if ($book->is_premium && !$hasSubs){
             return redirect()->route('plans.index')->with('error', 'This book is exclusive for Book Club Members. Join now to unlock!');

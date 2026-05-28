@@ -97,8 +97,8 @@ export default function dashboard({purchasedBooks, activeSubscription, invoices}
                                     <thead>
                                         <tr>
                                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice</th>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Plan</th>
+                                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price of plan</th>
                                                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
                                         </tr>
                                     </thead>
@@ -107,9 +107,9 @@ export default function dashboard({purchasedBooks, activeSubscription, invoices}
                                             <tr key={invoice.id}>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{invoice.invoice_number}</td>
                                                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{invoice.issued_at}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{invoice.amount}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rp. {invoice.amount}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href={pdfDonwload(invoice.id).url} className="text-indigo-600 hover:text-indigo-900">Download PDF</a>
+                                                    <a href={pdfDonwload(invoice.id).url} className="text-white px-2 py-2 bg-red-500 rounded-lg shadow-lg">Download PDF</a>
                                                 </td>
                                             </tr>
                                         ))}

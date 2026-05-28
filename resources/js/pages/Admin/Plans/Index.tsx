@@ -57,7 +57,7 @@ export default function AdminPlansIndex({ plans }: {plans: PropsPlans}) {
                                         <tr key={plan.id}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{plan.nama}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{plan.slug}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${plan.harga}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rp. {plan.harga}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <Link 
                                                     href={AdminEditPlans(plan.slug).url} 

@@ -69,9 +69,9 @@ class User extends Authenticatable
     }
 
 
-    public function getActiveSubsAttribue()
+    public function getActiveSubsAttribute()
     {
-        return $this->subscriptions
+        return $this->subscription
         ->where('status', 'active')
         ->where('ends_at', '>', now())
         ->first();

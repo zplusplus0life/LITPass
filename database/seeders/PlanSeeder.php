@@ -17,7 +17,7 @@ class PlanSeeder extends Seeder
             'nama' => 'Baca Gratis',
             'slug' => 'Gratis',
             'harga' => 0.00,
-            'deskripsi' => 'Telusuri buku yang umum dan bayar di harga wajar.',
+            'deskripsi' => 'Telusuri buku yang umum.',
         ]);
 
         Plan::create([

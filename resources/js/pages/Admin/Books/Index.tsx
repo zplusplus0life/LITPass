@@ -61,7 +61,7 @@ export default function AdminBookIndex({ books } : {books: PropsBuku}) {
                                                 {book.penulis}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                ${book.harga.toFixed(2)}
+                                                Rp. {Number(book.harga).toFixed(2)}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 {book.is_premium ? (

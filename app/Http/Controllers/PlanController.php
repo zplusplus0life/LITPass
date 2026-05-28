@@ -27,6 +27,57 @@ class PlanController extends Controller
         ]);
     }
 
+
+    public function create()
+    {
+        return Inertia::render('Admin/Plans/Create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:plans',
+            'harga' => 'required|numeric|min:0',
+            'deskripsi' => 'nullable|string',
+        ]);
+
+        Plan::create($validated);
+
+        return redirect()->route('admin.plans.index')->with('success', 'Plan created successfully.');
+    }
+
+
+    public function update(Request $request, Plan $plan)
+    {
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:plans,slug,'. $plan->id,
+            'harga' => 'required|numeric|min:0',
+            'deskripsi' => "nullable|string",
+        ]);
+
+        $plan->update($validated);
+
+        return redirect()->route('admin.plans.index')->with('success', 'Plan updated successfully.');
+    }
+
+
+    public function edit(Plan $plan)
+    {
+        return Inertia::render('Admin/Plans/Edit', [
+            'plan' => $plan,
+        ]);
+    }
+
+    public function destroy(Plan $plan)
+    {
+        $plan->delete();
+
+        return redirect()->route('admin.plans.index')->with('success', 'Plan deleted successfully.');
+    }
+    
+
     public function subscribe( Plan $plan, InvoiceController $invoiceController){
 
         $user = Auth::user();

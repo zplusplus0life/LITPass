@@ -2,12 +2,11 @@ import {usePage, Link} from '@inertiajs/react';
 import {useState} from 'react';
 import Dropdown from '@/components/Dropdown';
 import * as Route from '@/routes/index';
+import AppLogo from '@/components/app-logo-icon';
 import {index as planIndex} from '@/routes/plans';
-import {index as AdminUsers} from '@/routes/admin/users';
 import {index as AdminPlans} from '@/routes/admin/plans';
 import {index as AdminBooks} from '@/routes/admin/books';
 import {dashboard as adminDashboard} from '@/routes/admin';
-// import {edit as profileEdit} from '@/routes/profile';
 import {indeks as bookIndex} from '@/routes/books';
 import NavLink from '@/components/NavLink';
 
@@ -29,8 +28,13 @@ export default function AuthLayout({header, children}: any){
             <nav className="border-b border-gray-100 bg-white">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex h-16 justify-between">
+                        <div className="flex shrink-0 items-center"> 
+                            <Link href="/">
+                                <AppLogo className="block h-9 w-auto text-gray-800"></AppLogo>
+                            </Link>
+                        </div>
 
-                        <div className="hidde space-x-8 sm:ms-10 sm:flex">
+                        <div className="hidden space-x-8 sm:ms-10 sm:flex">
                               {user && user.role === 'admin' ? (
                                     <>
                                         <NavLink
@@ -38,12 +42,6 @@ export default function AuthLayout({header, children}: any){
                                             active={currentRouteIs('admin.dashboard')}
                                         >
                                             Admin Dashboard
-                                        </NavLink>
-                                           <NavLink
-                                            href={AdminUsers().url}
-                                            active={currentRouteIs('admin.users.index')}
-                                        >
-                                            Manage Users
                                         </NavLink>
                                         <NavLink
                                             href={AdminPlans().url}
@@ -90,18 +88,13 @@ export default function AuthLayout({header, children}: any){
                                         <Dropdown.Trigger>
                                             <button
                                                 type="button"
-                                                className="flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
+                                                className="border border-black hover:bg-yellow-100 flex items-center  bg-white px-3 py-2 text-sm font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
                                             >
                                                 {user.name}
                                             </button>
                                         </Dropdown.Trigger>
 
                                         <Dropdown.Content>
-                                            {/* <Dropdown.Link
-                                                href={profileEdit().url}
-                                            >
-                                                Profile
-                                            </Dropdown.Link> */}
                                             <Dropdown.Link
                                                 href={Route.logout().url}
                                                 method="post"
@@ -132,6 +125,15 @@ export default function AuthLayout({header, children}: any){
                     </div>
                 </div>
             </nav>
+
+            {header && (
+                <header className="bg-white shadow">
+                    <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                        {header}
+                    </div>
+                </header>
+            )}
+            
             <main>{children}</main>
         </div>
     )
