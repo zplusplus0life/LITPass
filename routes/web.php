@@ -16,9 +16,17 @@ Route::get('/', function () {
     return redirect()->route('books.indeks');
 });
 
-Route::get('/books', [BookController::class, 'index'])->name('books.indeks'); // books page index
 Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show'); // books details info
 Route::get('/plans', [PlanController::class, 'index'])->name('plans.index'); // plans page index
+
+
+// group middleware for home button
+Route::middleware('user')->group(function(){
+
+// books page index
+Route::get('/books', [BookController::class, 'index'])->name('books.indeks'); 
+
+});
 
 
 // --- GROUPING ROUTE USER SUDAH LOGIN --- 
