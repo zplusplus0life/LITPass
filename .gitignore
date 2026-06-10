@@ -26,3 +26,9 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Scribe Documentation
+/.scribe
+/public/vendor/scribe
+/resources/views/scribe
+/storage/app/private/scribe

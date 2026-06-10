@@ -5,6 +5,8 @@ import AuthLayout from '@/layouts/authLayout';
 
 export default function PlanIndex({plans}: {plans: PropsPlans}){
 
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
+
     return (
        <AuthLayout
        header={<h2 className="font-semibold text-xl text-gray-800">Subscription Plans</h2>}
@@ -23,7 +25,7 @@ export default function PlanIndex({plans}: {plans: PropsPlans}){
                                     <div className="p-6 flex-1">
                                         <h2 className="text-lg font-medium text-gray-900">{plan.nama}</h2>
                                         <p className="mt-4">
-                                            <span className="text-4xl font-extrabold text-gray-900">Rp. {plan.harga}</span>
+                                            <span className="text-4xl font-extrabold text-gray-900">{formatCurrency(plan.harga)}</span>
                                             <span className="ml-1 font-medium text-gray-500">/month</span>
                                         </p>
                                         <p className="mt-3 text-gray-500">{plan.deskripsi}</p>

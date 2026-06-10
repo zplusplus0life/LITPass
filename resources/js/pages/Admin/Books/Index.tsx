@@ -7,6 +7,9 @@ import {PropsBuku} from '@/types';
 
 
 export default function AdminBookIndex({ books } : {books: PropsBuku}) {
+
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
+
     const deleteBook = (id: number) => {
         if (confirm('Are you sure you want to delete this book?')) {
             router.delete(AdminDelBooks(id).url);
@@ -61,7 +64,7 @@ export default function AdminBookIndex({ books } : {books: PropsBuku}) {
                                                 {book.penulis}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                Rp. {Number(book.harga).toFixed(2)}
+                                               {formatCurrency(book.harga)}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 {book.is_premium ? (

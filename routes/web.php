@@ -53,7 +53,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
     
     //plans management
-    Route::resource('plans', planController::class);
+    Route::resource('plans', PlanController::class);
 
     //books management
     Route::get('/books', [AdminController::class, 'books'])->name('books.index');

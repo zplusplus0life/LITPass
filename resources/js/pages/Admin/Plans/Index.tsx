@@ -7,6 +7,8 @@ import {PropsPlans} from '@/types';
 
 
 export default function AdminPlansIndex({ plans }: {plans: PropsPlans}) {
+    
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
 
     const deletePlan = (id: string) => {
         if (confirm('Are you sure you want to delete this plan?')) {
@@ -57,7 +59,7 @@ export default function AdminPlansIndex({ plans }: {plans: PropsPlans}) {
                                         <tr key={plan.id}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{plan.nama}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{plan.slug}</td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rp. {plan.harga}</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(plan.harga)}</td>
                                             <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                 <Link 
                                                     href={AdminEditPlans(plan.slug).url} 

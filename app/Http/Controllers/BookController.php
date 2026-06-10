@@ -39,14 +39,16 @@ class BookController extends Controller
             ]);
     }
 
+    /**
+     * View Details a Specific Book
+     *
+     * @group Public API
+     * @urlParam book integer required ID dari buku yang ingin dilihat.
+     */
     public function show(Book $book)
     {
         $user = Auth::user();
         $hasSubs = $user ? $user->punyaAktifLangganan() : false;
-
-        if(!$user){
-            return redirect()->route('login')->with('error', 'You should login first.');
-        }
 
         if ($book->is_premium && !$hasSubs){
             return redirect()->route('plans.index')->with('error', 'This book is exclusive for Book Club Members. Join now to unlock!');

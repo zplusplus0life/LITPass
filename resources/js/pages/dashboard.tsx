@@ -9,6 +9,9 @@ import {propsInvoices} from '@/types';
 
 
 export default function dashboard({purchasedBooks, activeSubscription, invoices}: {purchasedBooks: propsPurchased, activeSubscription: propsActiveSubs, invoices: propsInvoices}){
+
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
+
     return(
        <AuthLayout
        header={<h2 className="font-semibold text-xl text-gray-800">User Dashboard</h2>}>
@@ -107,7 +110,7 @@ export default function dashboard({purchasedBooks, activeSubscription, invoices}
                                             <tr key={invoice.id}>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{invoice.invoice_number}</td>
                                                 <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{invoice.issued_at}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Rp. {invoice.amount}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(invoice.amount)}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href={pdfDonwload(invoice.id).url} className="text-white px-2 py-2 bg-red-500 rounded-lg shadow-lg">Download PDF</a>
                                                 </td>

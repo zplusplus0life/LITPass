@@ -4,6 +4,8 @@ import AuthLayout from '@/layouts/authLayout';
 import {store as  OrderStore} from '@/routes/orders';
 
 export default function BookShow({books, langganan}: {books:book, langganan:boolean}){
+    
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
 
     const {post, processing} = useForm({
         book_id : books.id,
@@ -48,7 +50,7 @@ export default function BookShow({books, langganan}: {books:book, langganan:bool
                                 <div className="mt-auto pt-8">
                                     <div className="flex gap-3 mb-6">
                                         <span className="text-3xl font-bold text-gray-900">
-                                            Rp. {books.tampilan_harga?.toFixed(2)}
+                                        {formatCurrency(books.tampilan_harga as number)}
                                         </span>
                                         {langganan && (
                                             <span className="textsm text-green-600 font-bold bg-green-50 px-2 py-1 rounded">

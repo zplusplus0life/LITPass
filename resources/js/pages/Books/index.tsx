@@ -5,6 +5,8 @@ import { Head, Link } from '@inertiajs/react';
 import AuthLayout from '@/layouts/authLayout';
 export default function index({buku, langganan}  : {buku: PropsBuku, langganan: boolean}) {
 
+    function formatCurrency(price: number) {return new Intl.NumberFormat('id-ID',{style: 'currency', currency: 'IDR'}).format(price)}
+
     return (
       <AuthLayout
       header={<h2 className="font-semibold text-xl text-gray-800">LITPass Catalog</h2>}
@@ -43,18 +45,18 @@ export default function index({buku, langganan}  : {buku: PropsBuku, langganan: 
                         <div className="mt-auto">
                           <div className="flex items-center gap-2">
                             <span className={`text-lg font-bold ${langganan ? 'text-green-600' : 'text-gray-900'}`}>
-                              Rp. {book.tampilan_harga?.toFixed(2)}
+                            {formatCurrency(book.tampilan_harga as number)}
                             </span>
                             {langganan && (
                               <span className="text-xs line-through text-gray-400">
-                                Rp. {book.harga.toFixed(2)}
+                            {formatCurrency(book.harga)}
                               </span>
                             )}
                           </div>
 
                           {!langganan && (
                             <p className="text-xs text-indigo-600 font-medium mb-4">
-                              Rp. {book.harga_member?.toFixed(2)} for members
+                              {formatCurrency(book.harga_member as number)} for members
                             </p>
                           )}
 
