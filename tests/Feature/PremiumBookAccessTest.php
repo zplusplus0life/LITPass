@@ -14,7 +14,7 @@ class PremiumBookAccessTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function test_user_not_have_subscription_not_allowed_acces_premium_resource(): void
     {
         $user = User::factory()->create();
 
