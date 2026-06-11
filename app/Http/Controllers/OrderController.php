@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    /**
+     * Create New Order
+     *
+     * Membuat pesanan buku baru.
+     * 
+     * @group Order API
+     * @authenticated
+     */
     public function store(Request $request){
 
         $request->validate([
@@ -40,6 +48,6 @@ class OrderController extends Controller
             'status' => 'completed',
         ]);
 
-        return redirect()->route('dashboard')->with('success', "Success! You bought '{$book->judul}' for $" . number_format($totalPrice, 2));
+        return redirect()->route('dashboard')->with('success', "Success! You bought '{$book->judul}' for Rp" . number_format($totalPrice, 2));
     }
 }

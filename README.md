@@ -40,10 +40,16 @@ Untuk memberikan gambaran alur bisnis yang diimplementasikan, berikut adalah beb
 
 Dokumentasi arsitektur sistem dan struktur data:
 
-*   **Entity Relationship Diagram (ERD)**: 
-    ![ERD](docs/diagram/erd.png)
-*   **Sequence Diagram**: 
-    ![Sequence Diagram](docs/diagram/sequence.png)
+<details>
+  <summary><b>Klik untuk melihat Arsitektur (ERD & Sequence Diagram)</b></summary>
+
+  ### Entity Relationship Diagram (ERD)
+  ![ERD](docs/diagram/erd.png)
+
+  ### Sequence Diagram
+  ![Sequence Diagram](docs/diagram/sequence.png)
+
+</details>
 
 ---
 
@@ -61,7 +67,7 @@ Dokumentasi arsitektur sistem dan struktur data:
 
 Untuk memastikan keandalan sistem, proyek ini dilengkapi dengan pengujian otomatis (Automated Testing) menggunakan PHPUnit:
 
-| Skenario Pengujian | Hasil Pengujian (Placeholder) |
+| Skenario Pengujian | Hasil Pengujian |
 |---|---|
 | **Akses Kontrol Paket Premium**: Memastikan pengguna tanpa paket premium tidak dapat melakukan pembelian/akses fitur eksklusif. | ![Test Access Control](docs/testing/test-user-access-premium.png) |
 | **Logika Diskon 20%**: Validasi perhitungan harga pada Order untuk memastikan diskon 20% diterapkan dengan benar. | ![Test Discount](docs/testing/test-discount-20%25.png) |

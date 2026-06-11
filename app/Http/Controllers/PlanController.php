@@ -48,13 +48,22 @@ class PlanController extends Controller
     }
 
 
+    /**
+     * Admin: Update Plan
+     *
+     * Mengubah data paket langganan (Hanya untuk Admin).
+     * 
+     * @group Admin API
+     * @authenticated
+     * @urlParam plan integer required ID paket.
+     */
     public function update(Request $request, Plan $plan)
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:plans,slug,'. $plan->id,
             'harga' => 'required|numeric|min:0',
-            'deskripsi' => "nullable|string",
+            'deskripsi' => 'nullable|string',
         ]);
 
         $plan->update($validated);
@@ -78,6 +87,15 @@ class PlanController extends Controller
     }
     
 
+    /**
+     * User Subscribe Plan
+     *
+     * User berlangganan paket tertentu.
+     * 
+     * @group Subscription API
+     * @authenticated
+     * @urlParam plan integer required ID paket langganan.
+     */
     public function subscribe( Plan $plan, InvoiceController $invoiceController){
 
         $user = Auth::user();
@@ -98,4 +116,5 @@ class PlanController extends Controller
 
           return redirect()->route('dashboard')->with('success', 'You have successfully subscribed to the ' . $plan->name . ' plan!');
     }
+
 }

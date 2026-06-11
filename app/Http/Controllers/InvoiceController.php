@@ -35,6 +35,15 @@ class InvoiceController extends Controller
           return $invoice;
     }
 
+    /**
+     * Download Invoice
+     *
+     * Mengunduh invoice dalam bentuk PDF.
+     * 
+     * @group Billing API
+     * @authenticated
+     * @urlParam invoice integer required ID invoice.
+     */
     public function download(Invoice $invoice){
 
         if(!Storage::disk('public')->exists($invoice->pdf_path)){
