@@ -1,6 +1,6 @@
-# LITPass: Subscription Based Digital Liblary Platform
+# LITPass: Subscription Based Digital Library Platform
 
-LITPass adalah platform manajemen buku berbasis langganan yang dibangun menggunakan Laravel 12 dan React (Inertia.js). Proyek ini mensimulasikan alur bisnis SaaS, mulai dari manajemen limitasi resource hingga otomatisasi invoicing.
+LITPass adalah platform manajemen buku berbasis langganan yang dibangun menggunakan Laravel 12 dan React (Inertia.js). Proyek ini mensimulasikan alur bisnis SaaS, mulai dari manajemen limitasi resource hingga PDF Invoice Generation System.
 
 ---
 
