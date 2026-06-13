@@ -100,8 +100,8 @@ php artisan serve
 ---
 
 ## Video Demo
-
-*   **Link Video**: [LITPass](https://youtube.com/belum-ada-video)
+ 
+[![LITPass](docs/yt/tumbnail.png)](https://youtu.be/aZ9BPt7-Ivg?si=W2q27ktkMS6_hwxD)
 
 ---
 
